@@ -5,13 +5,21 @@ set -e
 BUILD_SCRIPT=build.sh
 
 usage () {
-echo "main-build.sh --target= [--version=] [options to subproject]"
-echo "--target can equal to one of"
+echo "main-build.sh [--target= --revision= --compiler= --host=]"
+echo "--target="
 echo "  arm-none-eabi-gcc : GNU AArch32 Bare-metal toolchain"
 echo ""
-echo "--version can equal to one of"
+echo "--revision="
 echo "  A git revision hash of a subproject"
-echo "  A release version name in the format of yyyymmdd"
+echo "  A git tag"
+echo ""
+echo "--compiler="
+echo "  gcc"
+echo ""
+echo "--host="
+echo "  linux"
+echo "  mingw"
+echo "  darwin"
 }
 
 options_to_subproj=
