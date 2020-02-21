@@ -1,9 +1,25 @@
-This is the primary project to drive sub-projects prefixing with toolchain-.
+This is the primary project to drive sub-projects prefixing with toolchain-
 
-What this project does is to parse the build request from command line and
+This project parses the build request from command line and
 * Route the build commands into corresponding sub-projects
-* Checkout sub-projects with appropriate revisions
-* Invoke the build commands in sup-projects
+* Checkout the sub-projects with appropriate revisions
+* Invoke the build commands of the sub-projects
 
 Currently supported sub-projects:
 * toolchain-gnu-bare-metal (Build GNU AArch32 bare-metal targets)
+
+Please read README in the corresponding sub-projects for system requirement
+before actually building.
+
+Examples of build request.
+1. Build Arm 32-bit bare-metal gcc hosted on linux and Windows (default behavior)
+./main-build.sh --target=arm-none-eabi --compiler=gcc --host=linux,mingw # or
+./main-build.sh
+
+2. Build Arm 32-bit bare-metal gcc hosted on linux only
+./main-build.sh --target=arm-none-eabi --compiler=gcc --host=linux
+
+3. Build Arm 32-bit bare-metal gcc hosted on Mac OS
+./main-build.sh --target=arm-none-eabi --compiler=gcc --host=darwin # run this on a Mac OS machine
+
+Run ./main-build.sh -h for a complete list of options allowed
